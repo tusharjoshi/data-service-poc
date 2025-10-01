@@ -7,11 +7,11 @@ spring:
 
 device:
   client:
-    type: rest
+    type: db
 
 logging:
   level:
     root: INFO
     com.example: INFO
 server:
-  port: 8082
+  port: 8080

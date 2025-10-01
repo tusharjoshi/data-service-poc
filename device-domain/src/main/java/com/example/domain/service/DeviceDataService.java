@@ -18,7 +18,7 @@ public class DeviceDataService {
 
     private final DeviceRepository deviceRepository;
 
-    @GetMapping
+    @GetMapping("/returnall")
     public ResponseEntity<List<DeviceDTO>> getAllDevices() {
         log.info("DeviceDataService: GET /internal/devices called");
         List<DeviceDTO> devices = deviceRepository.findAll()
@@ -28,7 +28,7 @@ public class DeviceDataService {
         return ResponseEntity.ok(devices);
     }
 
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<DeviceDTO> createDevice(@RequestBody DeviceDTO deviceDTO) {
         log.info("DeviceDataService: POST /internal/devices called with name {}", deviceDTO.getName());
         Device device = new Device();
