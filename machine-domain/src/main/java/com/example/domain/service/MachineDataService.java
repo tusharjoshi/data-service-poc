@@ -18,30 +18,30 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@RequestMapping("/internal/devices")
+@RequestMapping("/internal/machines")
 @RequiredArgsConstructor
 @Slf4j
-public class DeviceDataService {
+public class MachineDataService {
 
     private final MachineRepository machineRepository;
 
-    @GetMapping
+    @GetMapping("/returnall")
     public ResponseEntity<List<MachineDTO>> getAllDevices() {
-        log.info("DeviceDataService: GET /internal/devices called");
+        log.info("MachineDataService: GET /internal/machines called");
         List<MachineDTO> devices = machineRepository.findAll()
                 .stream().map(d -> new MachineDTO(d.getId(), d.getName()))
                 .collect(Collectors.toList());
-        log.info("DeviceDataService: returning {} devices", devices.size());
+        log.info("MachineDataService: returning {} machines", devices.size());
         return ResponseEntity.ok(devices);
     }
 
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<MachineDTO> createDevice(@RequestBody MachineDTO deviceDTO) {
-        log.info("DeviceDataService: POST /internal/devices called with name {}", deviceDTO.getName());
+        log.info("MachineDataService: POST /internal/machines called with name {}", deviceDTO.getName());
         Machine machine = new Machine();
         machine.setName(deviceDTO.getName());
         Machine saved = machineRepository.save(machine);
-        log.info("DeviceDataService: saved device ID {}", saved.getId());
+        log.info("MachineDataService: saved machine ID {}", saved.getId());
         return ResponseEntity.ok(new MachineDTO(saved.getId(), saved.getName()));
     }
 }
