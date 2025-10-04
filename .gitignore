@@ -12,6 +12,7 @@ dist/
 .classpath
 .project
 .settings
+build/
 
 # Compiled Python bytecode
 *.py[cod]
@@ -52,3 +53,9 @@ Thumbs.db
 *.wmv
 
 /bin/
+
+# Gradle files
+.gradle/
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+build/
