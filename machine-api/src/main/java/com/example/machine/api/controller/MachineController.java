@@ -21,21 +21,21 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class MachineController {
 
-    private final MachineService deviceService;
+    private final MachineService machineService;
 
     @GetMapping("/returnall")
     public ResponseEntity<List<MachineDTO>> getAllMachines() {
-        log.info("Controller: GET /api/devices called");
-        List<MachineDTO> devices = deviceService.getAllMachines();
-        log.info("Controller: returning {} devices", devices.size());
-        return ResponseEntity.ok(devices);
+        log.info("Controller: GET /api/machines called");
+        List<MachineDTO> machines = machineService.getAllMachines();
+        log.info("Controller: returning {} devices", machines.size());
+        return ResponseEntity.ok(machines);
     }
 
     @PostMapping("/create")
-    public ResponseEntity<MachineDTO> createMachine(@RequestBody MachineDTO deviceDTO) {
-        log.info("Controller: POST /api/devices called with name {}", deviceDTO.getName());
-        MachineDTO created = deviceService.createMachine(deviceDTO);
-        log.info("Controller: returning created device with ID {}", created.getId());
+    public ResponseEntity<MachineDTO> createMachine(@RequestBody MachineDTO machineDTO) {
+        log.info("Controller: POST /api/machines called with name {}", machineDTO.getName());
+        MachineDTO created = machineService.createMachine(machineDTO);
+        log.info("Controller: returning created machine with ID {}", created.getId());
         return ResponseEntity.ok(created);
     }
 }

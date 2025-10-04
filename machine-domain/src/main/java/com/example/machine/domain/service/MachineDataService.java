@@ -30,18 +30,18 @@ public class MachineDataService {
     @GetMapping("/returnall")
     public ResponseEntity<List<MachineDTO>> getAllDevices() {
         log.info("MachineDataService: GET /machines called");
-        List<MachineDTO> devices = machineRepository.findAll()
+        List<MachineDTO> machines = machineRepository.findAll()
                 .stream().map(d -> new MachineDTO(d.getId(), d.getName()))
                 .collect(Collectors.toList());
-        log.info("MachineDataService: returning {} machines", devices.size());
-        return ResponseEntity.ok(devices);
+        log.info("MachineDataService: returning {} machines", machines.size());
+        return ResponseEntity.ok(machines);
     }
 
     @PostMapping("/create")
-    public ResponseEntity<MachineDTO> createDevice(@RequestBody MachineDTO deviceDTO) {
-        log.info("MachineDataService: POST /machines called with name {}", deviceDTO.getName());
+    public ResponseEntity<MachineDTO> createDevice(@RequestBody MachineDTO machineDTO) {
+        log.info("MachineDataService: POST /machines called with name {}", machineDTO.getName());
         Machine machine = new Machine();
-        machine.setName(deviceDTO.getName());
+        machine.setName(machineDTO.getName());
         Machine saved = machineRepository.save(machine);
         log.info("MachineDataService: saved machine ID {}", saved.getId());
         return ResponseEntity.ok(new MachineDTO(saved.getId(), saved.getName()));

@@ -18,16 +18,16 @@ public class MachineService {
     private final MachineClient machineClient;
 
     public List<MachineDTO> getAllMachines() {
-        log.info("API DeviceService: fetching all devices");
+        log.info("API MachineService: fetching all machines");
         List<MachineDTO> devices = machineClient.getAllMachines();
-        log.info("API DeviceService: {} devices fetched", devices.size());
+        log.info("API MachineService: {} machines fetched", devices.size());
         return devices;
     }
 
-    public MachineDTO createMachine(MachineDTO deviceDTO) {
-        log.info("API DeviceService: creating device with name {}", deviceDTO.getName());
-        MachineDTO created = machineClient.createMachine(deviceDTO);
-        log.info("API DeviceService: device created with ID {}", created.getId());
+    public MachineDTO createMachine(MachineDTO machineDTO) {
+        log.info("API DeviceService: creating machine with name {}", machineDTO.getName());
+        MachineDTO created = machineClient.createMachine(machineDTO);
+        log.info("API MachineService: machine created with ID {}", created.getId());
         return created;
     }
 }

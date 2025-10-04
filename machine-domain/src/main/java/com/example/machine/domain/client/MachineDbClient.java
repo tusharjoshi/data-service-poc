@@ -23,21 +23,21 @@ public class MachineDbClient implements MachineClient {
 
     @Override
     public List<MachineDTO> getAllMachines() {
-        log.info("DeviceDbClient: fetching all devices from DB");
-        List<MachineDTO> devices = machineRepository.findAll()
+        log.info("MachineDbClient: fetching all machines from DB");
+        List<MachineDTO> machines = machineRepository.findAll()
                 .stream().map(d -> new MachineDTO(d.getId(), d.getName()))
                 .collect(Collectors.toList());
-        log.info("DeviceDbClient: {} devices fetched", devices.size());
-        return devices;
+        log.info("MachineDbClient: {} machines fetched", machines.size());
+        return machines;
     }
 
     @Override
-    public MachineDTO createMachine(MachineDTO deviceDTO) {
-        log.info("DeviceDbClient: saving device with name {}", deviceDTO.getName());
+    public MachineDTO createMachine(MachineDTO machineDTO) {
+        log.info("MachineDbClient: saving machine with name {}", machineDTO.getName());
         Machine machine = new Machine();
-        machine.setName(deviceDTO.getName());
+        machine.setName(machineDTO.getName());
         Machine saved = machineRepository.save(machine);
-        log.info("DeviceDbClient: saved device ID {}", saved.getId());
+        log.info("DeviceDbClient: saved machine ID {}", saved.getId());
         return new MachineDTO(saved.getId(), saved.getName());
     }
 }

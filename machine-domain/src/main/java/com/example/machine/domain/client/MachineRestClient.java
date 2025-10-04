@@ -28,17 +28,17 @@ public class MachineRestClient implements MachineClient {
 
     @Override
     public List<MachineDTO> getAllMachines() {
-        log.info("DeviceRestClient: fetching all devices from DeviceDataService");
-        MachineDTO[] devices = machineRestTemplate.getForObject(DATA_SERVICE_URL+MACHINE_SERVICE_END_POINT+"/returnall", MachineDTO[].class);
-        log.info("DeviceRestClient: {} devices fetched", devices.length);
-        return Arrays.asList(devices);
+        log.info("MachineRestClient: fetching all machines from MachineDataService");
+        MachineDTO[] machines = machineRestTemplate.getForObject(DATA_SERVICE_URL+MACHINE_SERVICE_END_POINT+"/returnall", MachineDTO[].class);
+        log.info("MachineRestClient: {} machines fetched", machines.length);
+        return Arrays.asList(machines);
     }
 
     @Override
-    public MachineDTO createMachine(MachineDTO deviceDTO) {
-        log.info("DeviceRestClient: creating device via DeviceDataService with name {}", deviceDTO.getName());
-        MachineDTO created = machineRestTemplate.postForObject(DATA_SERVICE_URL+MACHINE_SERVICE_END_POINT+"/create", deviceDTO, MachineDTO.class);
-        log.info("DeviceRestClient: device created with ID {}", created.getId());
+    public MachineDTO createMachine(MachineDTO machineDTO) {
+        log.info("MachineRestClient: creating machine via MachineDataService with name {}", machineDTO.getName());
+        MachineDTO created = machineRestTemplate.postForObject(DATA_SERVICE_URL+MACHINE_SERVICE_END_POINT+"/create", machineDTO, MachineDTO.class);
+        log.info("MachineRestClient: machine created with ID {}", created.getId());
         return created;
     }
 }
