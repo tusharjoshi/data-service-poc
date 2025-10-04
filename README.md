@@ -14,15 +14,15 @@ This README would normally document whatever steps are necessary to get your app
 * Use following end points for local testing of Device domain rest end points. Calls are route through data service only which acts as proxy.
 
  
-* curl -X GET http://localhost:8080/internal/devices/returnall
-* curl -X POST http://localhost:8080/internal/devices/create -H  "Content-Type: application/json"  -d "{\"name\":\"Device 5\"}"
+* curl -X GET http://localhost:8080/devices/returnall
+* curl -X POST http://localhost:8080/devices/create -H  "Content-Type: application/json"  -d "{\"name\":\"Device 5\"}"
 
 
 * Use following end points for local testing of Machine domain rest end points. 
 
 
-* curl -X GET http://localhost:8080/internal/machines/returnall
-* curl -X POST http://localhost:8080/internal/machines/create -H  "Content-Type: application/json"  -d "{\"name\":\"Machine 3\"}"
+* curl -X GET http://localhost:8080/machines/returnall
+* curl -X POST http://localhost:8080/machines/create -H  "Content-Type: application/json"  -d "{\"name\":\"Machine 3\"}"
 
 
 ### How do I get set up? ###
