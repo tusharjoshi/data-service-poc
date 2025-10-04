@@ -19,6 +19,7 @@
 			<artifactId>device-domain</artifactId>
 			<version>1.0.0</version>
 		</dependency>
+	
 		<dependency>
 			<groupId>com.example</groupId>
 			<artifactId>machine-domain</artifactId>

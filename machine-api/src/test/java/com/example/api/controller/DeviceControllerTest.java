@@ -11,8 +11,9 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.http.ResponseEntity;
 
-import com.example.api.service.MachineService;
-import com.example.domain.dto.MachineDTO;
+import com.example.machine.api.controller.MachineController;
+import com.example.machine.api.service.MachineService;
+import com.example.machine.domain.dto.MachineDTO;
 
 class DeviceControllerTest {
 

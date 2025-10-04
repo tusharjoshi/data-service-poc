@@ -15,3 +15,6 @@ logging:
     com.example: INFO
 server:
   port: 8083
+  
+data-service-url: ${DATA_SERVICE_URL:http://localhost:8080}
+machine-service-end-point: ${MACHINE_SERVICE_END_POINT:/machines}

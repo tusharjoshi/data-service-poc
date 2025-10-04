@@ -15,3 +15,5 @@ logging:
     com.example: INFO
 server:
   port: 8082
+data-service-url: ${DATA_SERVICE_URL:http://localhost:8080}
+device-service-end-point: ${DEVICE_SERVICE_END_POINT:/devices}
